@@ -1,10 +1,19 @@
-;(function($){
+/**
+ * Scroll Center To - Plugin for jQuery
+ *
+ * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
+ * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
+ *
+ * Depends:
+ *   jquery.js
+ * 
+ * Author: hiromitz ( http://github.com/hiromitz )
+ * 
+ */
+;(function($, w){
   
-  var p = $('html').scrollTop(),
-      el = ($('html').scrollTop(p + 1) && (p + 1) == $('html').scrollTop()) ? 'html' : 'body', // for firefox | webkit
-      d = 600; // default duration
-  
-  $('html').scrollTop(p);
+  var el = ($.browser.webkit) ? 'body' : 'html',
+  	  d = 600; // default duration
   
   $.fn.scrollCenterTo = function(dur) {
     // scroll position must be one
@@ -23,5 +32,4 @@
     
   };
   
-  
-})(jQuery);
+})(jQuery, window);
