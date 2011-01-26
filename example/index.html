@@ -2,6 +2,19 @@
 <html>
 <head>
 <style>
+.action {
+	position: fixed;
+	bottom: 0; right: 0; left: 0;
+	background: #ccc;
+	background: rgba(0,0,0,.5);
+	text-align: center;
+}
+.action a {
+	color: #fff;
+	display: block;
+	width: 100%;
+	text-decoration: none;
+}
 #scrollto {
   background: #444;
   color: #eee;
@@ -15,6 +28,7 @@ $(function() {
 
 $('#btn').click(function() {
   $('#scrollto').scrollCenterTo();
+  return false;
 });
 
 });
@@ -22,7 +36,10 @@ $('#btn').click(function() {
 
 </head>
 <body>
-<button id="btn">Scroll</button>
+<div class="action">
+	<a href="#" id="btn">Scroll</a>
+</div>
+
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod 
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
