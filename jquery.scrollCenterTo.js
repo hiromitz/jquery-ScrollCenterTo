@@ -10,12 +10,12 @@
  * Author: hiromitz ( http://github.com/hiromitz )
  * 
  */
-;(function($, w){
+;(function($){
   
   var el = ($.browser.webkit) ? 'body' : 'html',
   	  d = 600; // default duration
   
-  $.fn.scrollCenterTo = function(dur) {
+  $.fn.scrollCenterTo = function(dur, easing) {
     // scroll position must be one
     if(1 < $(this).length) return;
     
@@ -26,10 +26,10 @@
         t = $(this).position().top,
         s = t - (w / 2) + (h / 2);
     
-    $(el).animate({scrollTop: s}, d, "swing");
+    $(el).animate({scrollTop: s}, d, easing || "swing");
     
     return this;
     
   };
   
-})(jQuery, window);
+})(jQuery);
