@@ -11,25 +11,24 @@
  * 
  */
 ;(function($){
-  
-  var el = ($.browser.webkit) ? 'body' : 'html',
-  	  d = 600; // default duration
-  
-  $.fn.scrollCenterTo = function(dur, easing) {
+  $.fn.scrollCenterTo = function(op) {
+  	
+	op = $.extend({
+		dur: 600,
+		easing: "swing"
+	}, op);
+	
     // scroll position must be one
     if(1 < $(this).length) return;
     
-    d = dur || d;
-    
     var w = $(window).height(),
         h = $(this).height(),
-        t = $(this).position().top,
+        t = $(this).offset().top,
         s = t - (w / 2) + (h / 2);
     
-    $(el).animate({scrollTop: s}, d, easing || "swing");
+    $('html,body').animate({scrollTop: s}, op.dur, op.easing);
     
     return this;
-    
   };
   
 })(jQuery);
